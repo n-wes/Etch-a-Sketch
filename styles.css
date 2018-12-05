@@ -6,19 +6,17 @@
 
 #canvas {
   width: 1000px;
-  height: 1000px;
+  height: 700px;
   border: 1px solid black;
   position: relative;
-  margin: 200px auto;
-  display: grid;
-  grid-column-gap: 10px;
-  grid-template-columns: auto auto auto;
+  margin: 100px auto;
+  display: flex;
 }
 
 .square {
-  background: blue;
-  margin: 4px;
-  width: 20px;
-  height: 20px;
+  background: white;
+  width: 50px;
+  height: 50px;
   border: 1px solid black;
+  flex: 2;
 }
