@@ -1,10 +1,13 @@
 const body_div = document.body;
+const row_field = document.getElementById('row-field');
 const clear_button = document.getElementById('clear-button');
 const canvas_div = document.getElementById('canvas');
 
+row_field.innerHTML = '50';
+let rows = Number(row_field.innerHTML);
 
 
-createRows(120);
+createRows(rows);
 
 
 // create square grid layout of divs
