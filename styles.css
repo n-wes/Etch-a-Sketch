@@ -7,22 +7,29 @@
 #canvas {
   width: 1000px;
   height: 700px;
-  margin: 50px auto;
+  margin: 10px auto;
   display: flex;
+  border: 1px solid black;
 }
 
 .square {
   background: white;
-  border: 0.5px solid grey;
 }
 
 .hovered {
-  background: grey;
+  filter: brightness(135%);
 }
 
 button {
   display: block;
-  margin:  50px auto;
+  top: 30px;
+  margin:  0 auto;
   width: 50px;
   height: 50px;
+}
+
+input {
+  display: block;
+  margin: 10px auto;
+  text-align: center;
 }

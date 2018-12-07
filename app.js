@@ -1,14 +1,21 @@
-const body_div = document.body;
 const row_field = document.getElementById('row-field');
+const make_rows_button = document.getElementById('make-rows');
 const clear_button = document.getElementById('clear-button');
 const canvas_div = document.getElementById('canvas');
 
-row_field.innerHTML = '50';
-let rows = Number(row_field.innerHTML);
+//First Load Values
+row_field.value = '130';
+createRows(Number(row_field.value));
 
-
-createRows(rows);
-
+make_rows_button.addEventListener('click', function() {
+  try {
+      let row_div = document.getElementsByClassName('row');
+      for (let i = row_div.length-1; i >= 0; i--) {
+      canvas_div.removeChild(row_div[i]);
+      }
+  } catch (e) {}
+  createRows(row_field.value);
+});
 
 // create square grid layout of divs
 function createRows(rows) {
@@ -32,19 +39,22 @@ function createRows(rows) {
 
 function toggleShiftColor() {
   this.classList.add('hovered');
+  //This is what makes the colors.
+  setInterval(changeBackground, 0);
+  function changeBackground() {
+    const hovered_divs = document.querySelectorAll('.hovered');
+    hovered_divs.forEach(function(hovered) {
+      hovered.style.background = "#"+((1<<24)*Math.random()|0).toString(16);
+    });
+  }
 }
 
 clear_button.addEventListener('click', clearCanvas);
 
 function clearCanvas() {
   const square_divs = document.querySelectorAll('.square');
-  /*
-  THIS DOES THE SAME THING AS BELLOW
-  for (let i = 0; i < square_divs.length; i++) {
-    square_divs[i].classList.remove('hovered');
-    //console.log(square_divs[i]);
-  }*/
   square_divs.forEach(function(square) {
     square.classList.remove('hovered');
+    square.style.background = 'white';
   })
 }
