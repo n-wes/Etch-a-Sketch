@@ -4,7 +4,7 @@ const clear_button = document.getElementById('clear-button');
 const canvas_div = document.getElementById('canvas');
 
 //First Load Values
-row_field.value = '130';
+row_field.value = '70';
 createRows(Number(row_field.value));
 
 make_rows_button.addEventListener('click', function() {
@@ -39,12 +39,12 @@ function createRows(rows) {
 
 function toggleShiftColor() {
   this.classList.add('hovered');
-  //This is what makes the colors.
+  //Add color on hover
   setInterval(changeBackground, 0);
   function changeBackground() {
     const hovered_divs = document.querySelectorAll('.hovered');
     hovered_divs.forEach(function(hovered) {
-      hovered.style.background = "#"+((1<<24)*Math.random()|0).toString(16);
+      hovered.style.background = "#000000";
     });
   }
 }
